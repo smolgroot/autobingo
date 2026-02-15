@@ -3,6 +3,7 @@ import { generateCard } from '../utils/bingoLogic';
 import BingoCard from '../components/BingoCard';
 import { Plus, Save, Play, Trash2, Moon, Sun, Globe } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { translations } from '../utils/translations';
 
 const CardCreator = () => {
     const [savedCards, setSavedCards] = useState([]);
@@ -10,6 +11,8 @@ const CardCreator = () => {
     const [theme, setTheme] = useState(localStorage.getItem('bingo-theme') || 'dark');
     const [language, setLanguage] = useState(localStorage.getItem('bingo-lang') || 'en-US');
     const navigate = useNavigate();
+
+    const t = translations[language] || translations['en-US'];
 
     useEffect(() => {
         const stored = localStorage.getItem('bingo-cards');
@@ -57,8 +60,8 @@ const CardCreator = () => {
     return (
         <div className="container">
             <header style={{ marginBottom: '2rem', textAlign: 'center' }}>
-                <h1 style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>EasyBingo</h1>
-                <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem' }}>Create and save your Bingo cards</p>
+                <h1 style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>{t.title}</h1>
+                <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem' }}>{t.subtitle}</p>
 
                 <div className="glass" style={{ display: 'inline-flex', padding: '0.5rem', gap: '1rem', alignItems: 'center' }}>
                     <button className="btn-secondary" onClick={toggleTheme} title="Toggle Theme">
@@ -73,6 +76,8 @@ const CardCreator = () => {
                         >
                             <option value="en-US">English</option>
                             <option value="fr-FR">Français</option>
+                            <option value="es-ES">Español</option>
+                            <option value="de-DE">Deutsch</option>
                         </select>
                     </div>
                 </div>
@@ -80,24 +85,24 @@ const CardCreator = () => {
 
             <div className="creator-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
                 <section className="glass" style={{ padding: '2rem', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                    <h2 style={{ marginBottom: '1.5rem', alignSelf: 'flex-start' }}>Generate New Card</h2>
+                    <h2 style={{ marginBottom: '1.5rem', alignSelf: 'flex-start' }}>{t.generateTitle}</h2>
                     {currentGrid && <BingoCard grid={currentGrid} />}
                     <div style={{ marginTop: '1.5rem', display: 'flex', gap: '1rem', width: '100%', justifyContent: 'center' }}>
                         <button className="btn-secondary" onClick={handleGenerate}>
-                            <Plus size={20} style={{ marginRight: '0.5rem' }} /> New
+                            <Plus size={20} style={{ marginRight: '0.5rem' }} /> {t.generateNew}
                         </button>
                         <button className="btn-primary" onClick={handleSave}>
-                            <Save size={20} style={{ marginRight: '0.5rem' }} /> Save Card
+                            <Save size={20} style={{ marginRight: '0.5rem' }} /> {t.saveCard}
                         </button>
                     </div>
                 </section>
 
                 <section className="glass" style={{ padding: '2rem' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
-                        <h2>Saved Cards ({savedCards.length})</h2>
+                        <h2>{t.savedCards} ({savedCards.length})</h2>
                         {savedCards.length > 0 && (
                             <button className="btn-primary" onClick={startPlaying}>
-                                <Play size={20} style={{ marginRight: '0.5rem' }} /> Play Now
+                                <Play size={20} style={{ marginRight: '0.5rem' }} /> {t.playNow}
                             </button>
                         )}
                     </div>
@@ -129,7 +134,7 @@ const CardCreator = () => {
                         ))}
                         {savedCards.length === 0 && (
                             <p style={{ color: 'var(--text-muted)', textAlign: 'center', width: '100%', padding: '2rem' }}>
-                                No cards saved yet. Generate one to start!
+                                {t.noCards}
                             </p>
                         )}
                     </div>
