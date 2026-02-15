@@ -10,8 +10,8 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
       manifest: {
-        name: 'AutoBingo',
-        short_name: 'AutoBingo',
+        name: 'EasyBingo',
+        short_name: 'EasyBingo',
         description: 'Automatic Bingo scanner and player',
         theme_color: '#0f171a',
         icons: [

@@ -168,9 +168,20 @@ h3 {
     overflow-x: auto;
     padding-bottom: 1rem;
     display: flex;
-    flex-wrap: nowrap !important;
-    justify-content: flex-start !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
     gap: 1rem;
+  }
+
+  /* Fix home page saved cards responsiveness */
+  .cards-scroller {
+    max-height: 400px;
+    overflow-y: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
   }
 
   .keyboard-overlay {

@@ -57,7 +57,7 @@ const CardCreator = () => {
     return (
         <div className="container">
             <header style={{ marginBottom: '2rem', textAlign: 'center' }}>
-                <h1 style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>AutoBingo</h1>
+                <h1 style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>EasyBingo</h1>
                 <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem' }}>Create and save your Bingo cards</p>
 
                 <div className="glass" style={{ display: 'inline-flex', padding: '0.5rem', gap: '1rem', alignItems: 'center' }}>

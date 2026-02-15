@@ -94,7 +94,7 @@ const GameSession = () => {
                     <ArrowLeft size={20} /> Back
                 </button>
                 <div style={{ textAlign: 'center', flex: '1', minWidth: '200px' }}>
-                    <h1 style={{ fontSize: '2rem' }}>AutoBingo Play</h1>
+                    <h1 style={{ fontSize: '2rem' }}>EasyBingo Play</h1>
                     {lastAnnounced && <div style={{ fontSize: '1.5rem', color: 'var(--primary)', fontWeight: 'bold' }}>Last: {lastAnnounced}</div>}
                 </div>
                 <div style={{ display: 'flex', gap: '0.5rem' }}>
